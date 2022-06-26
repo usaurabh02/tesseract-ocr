@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- v2 -->
+    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+
+    <!-- v1 -->
+    <script src='https://unpkg.com/tesseract.js@1.0.19/src/index.js'></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl">Supra Oncology</a>
+        </div>
+        <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    class="inline-block w-5 h-5 stroke-current">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Navbar-end -->
+    <!-- Display the image here -->
+    <div class="hero min-h-screen" ">
+        <div class=" hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content">
+        <div class="max-w-md">
+            <!-- Use loop to display images in static\assets\croppedimages -->
+            <form action="" method="post">
+            <input type="text" name="{{img}}">
+            <button action="url_for({{render}})">
+                <img src="{{img}}" alt="" ">
+    
+                </button>
+        </form>
+         
+
+        </div>
+    </div>
+    </div>
+
+
+    <script src="static\index.js"></script>
+</body>
+
+</html>

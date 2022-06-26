@@ -1,0 +1,7 @@
+Flask==2.0.3
+numpy==1.19.5
+# opencv-python-headless==4.2.0.0
+requests==2.27.1
+pytesseract==0.3.8
+pillow>=6.2.0
+gunicorn

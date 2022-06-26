@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-xl">Supra Oncology</a>
+        </div>
+        <div class="flex-none">
+          <button class="btn btn-square btn-ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+          </button>
+        </div>
+      </div>
+    <!-- Navbar-end -->
+    <!-- Display the image here -->
+      <center>
+        <div class="card w-96 glass">
+            <figure><img src="{{filepath}}"  id="container" alt="car!"></figure>
+            <div class="card-body">
+              <h2 class="card-title">Extract Text</h2>
+              <p>Click Extract to extract text from the image</p>
+              <form action="" method="post">
+                <div class="card-actions justify-end">
+                    <button class="btn btn-primary"><input type="submit" value="Extract" class="submit"> </button>
+                  </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Position the slider in vertical direction: -->
+          
+          <div class="slider" style="border: 2;">
+            <span>
+              <h3>Brightness Control: </h3> 
+              <input type="range" class="range range-lg range-primary" min="10" max="160" value="100" onchange="fun(this)">
+              </span>
+              <span>
+              <h3>Contrast Control: </h3>
+              <input type="range" class="range range-lg range-primary" min="10" max="160" value="100" onchange="funco(this)">
+              </span>
+              <span>
+              <h3>Saturation Control: </h3>
+              <input type="range" class="range range-lg range-primary" min="10" max="160" value="100" onchange="funso(this)">
+
+              </span>
+              <span>
+              <h3>Hue Control: </h3>
+              <input type="range" class="range range-lg range-primary" min="10" max="160" value="100" onchange="funho(this)">
+
+              </span>
+          </div>
+           
+      </center>
+      <style>
+        /* Make the slider length smaller */
+        .slider {
+          width: 50%;
+          /*Draw borders for the slider div*/
+          border: 1px solid #6419e6;
+          /*Set the border radius*/
+          border-radius: 10px;
+          /*Set the background color*/
+          background: #2a303c;
+          /*Change the font */
+          font-family: 'Roboto', sans-serif;
+          /*Set the font size*/
+          font-size: 1.36em;
+          /*Set the font color*/
+          color: #fff;
+        }
+
+        /*Place the card and slider div side by side*/
+        .slider {
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 0 1em 0;
+          /*Add some padding on left and top*/
+          padding: 0.5em 1em;
+          /*Set the border radius*/
+        }
+        .card {
+          display: inline-block;
+          vertical-align: top;
+          margin: 0 0 1em 0;
+        } 
+
+      </style>
+      <script>
+        function fun(e)
+        {
+        var container = document.getElementById('container');
+        var val = e.value;
+        container.setAttribute("style", "filter: brightness("+val+"%);");
+        //Contrast  
+
+        }
+        function funco(e)
+        {
+        var container = document.getElementById('container');
+        var val = e.value;
+        container.setAttribute("style", "filter: contrast("+val+"%);");
+        //Contrast  
+
+        }
+        function funso(e)
+        {
+        var container = document.getElementById('container');
+        var val = e.value;
+        container.setAttribute("style", "filter: saturate("+val+"%);");
+        //Contrast  
+
+        }
+        function funho(e)
+        {
+        var container = document.getElementById('container');
+        var val = e.value;
+        container.setAttribute("style", "filter: hue-rotate("+val+"deg);");
+        //Contrast  
+
+        }
+
+        //Save Image
+        
+
+
+        </script>
+</body>
+</html>

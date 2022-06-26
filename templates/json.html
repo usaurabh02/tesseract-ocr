@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.15.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl" href="{{url_for('index')}}">Supra Oncology</a>
+        </div>
+        <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    class="inline-block w-5 h-5 stroke-current">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Navbar-end -->
+    <div class="mockup-window border bg-base-300">
+        <div class="flex justify-center px-4 py-16 bg-base-200">
+            <!-- create a table to display json data -->
+            <table class="table-auto">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">Name</th>
+                        <th class="px-4 py-2">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">
+                            <span contenteditable="true" class="text-sm name">Key</span>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <span contenteditable="true" class="text-sm val">Value</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <!-- Create an add row button -->
+            <br>
+            < </div> <center><button class="btn btn-primary"><input type="button" value="Add Row"
+                        id="addRows" /></button></center>
+
+            <form action="" method="post">
+                <button class="btn btn-primary"><input type="submit" name="view" value="View"></button>
+            </form>
+
+
+        </div>
+        <style>
+            /*Change Font Size and color of table contents*/
+            .name {
+                font-size: 22px;
+                color: rgb(209, 209, 209);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 200;
+            }
+            .val {
+                font-size: 22px;
+                color: rgb(209, 209, 209);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 200;
+            }
+            /*Change the table thickness*/
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                /*Line thickness and color*/
+                border: 5px solid rgb(209, 209, 209);
+                border-radius: 10px;
+
+
+
+            }
+        </style>
+        <script>
+            // fetch data from json
+            fetch('static/healthRecords/text.json')
+                .then(response => response.json())
+                //display data in html table
+                .then(data => {
+                    let table = document.querySelector('table');
+                    console.log(data);
+                    for (item in data) {
+                        //Insert into tbody
+                        let tr = document.createElement('tr');
+                        let tdName = document.createElement('td');
+                        let tdValue = document.createElement('td');
+                        tdName.className = 'border px-4 py-2';
+                        tdValue.className = 'border px-4 py-2';
+                        tdName.innerHTML = `<span contenteditable="true" class="text-sm name">${item}</span>`;
+                        tdValue.innerHTML = `<span contenteditable="true" class="text-sm val">${data[item]}</span>`;
+                        tr.appendChild(tdName);
+                        tr.appendChild(tdValue);
+                        table.appendChild(tr);
+
+
+                    }
+
+                });
+
+            // add row button
+            document.getElementById('addRows').addEventListener('click', function () {
+                let table = document.querySelector('table');
+                let tr = document.createElement('tr');
+                let tdName = document.createElement('td');
+                let tdValue = document.createElement('td');
+                tdName.className = 'border px-4 py-2';
+                tdValue.className = 'border px-4 py-2';
+                tdName.innerHTML = `<span contenteditable="true" class="text-sm name">Key</span>`;
+                tdValue.innerHTML = `<span contenteditable="true" class="text-sm val">Value</span>`;
+                tr.appendChild(tdName);
+                tr.appendChild(tdValue);
+                table.appendChild(tr);
+            });
+        </script>
+</body>
+
+</html>
